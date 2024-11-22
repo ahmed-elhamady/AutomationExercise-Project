@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "a59f9256-d956-4d5d-bcd7-bf94c4850a16",
+		"name": "Login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37609950"
+	},
+	"item": [
+		{
+			"name": "LoginWithValidData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200 and 'message' with value: User exists!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 200);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"User exists!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "Mazen2000@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Mazen&2000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{LoginURL}}",
+					"host": [
+						"{{LoginURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginWithInvalidData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response code is less than 1s\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 404 and 'message' with value: User not found!\", function(){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    \r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 404);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"User not found!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "Ali@yahoo.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ali&112233",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{LoginURL}}",
+					"host": [
+						"{{LoginURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginWithoutEmailParameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response code is less than 1s\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 400 and 'message' with value: Bad request, email or password parameter is missing in POST request.\", function(){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    \r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 400);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"Bad request, email or password parameter is missing in POST request.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "password",
+							"value": "Ali&112233",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{LoginURL}}",
+					"host": [
+						"{{LoginURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginWithoutPasswordlParameter",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response code is less than 1s\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 400 and 'message' with value: Bad request, email or password parameter is missing in POST request.\", function(){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    \r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 400);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"Bad request, email or password parameter is missing in POST request.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "Kareem2000@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{LoginURL}}",
+					"host": [
+						"{{LoginURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteToVerifyLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response code is less than 1s\", function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 405 and 'message' with value: This request method is not supported.\", function(){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    \r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 405);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"This request method is not supported.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{LoginURL}}",
+					"host": [
+						"{{LoginURL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "LoginURL",
+			"value": "https://automationexercise.com/api/verifyLogin",
+			"type": "string"
+		}
+	]
+}

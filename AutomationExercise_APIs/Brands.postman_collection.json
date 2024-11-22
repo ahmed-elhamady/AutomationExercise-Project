@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "19e63b4d-9713-4a3a-8dbd-808305227da6",
+		"name": "Brands",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37609950"
+	},
+	"item": [
+		{
+			"name": "GetAllBrands",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\",function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function (){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000 )\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200\", function () {\r",
+							"     pm.expect(pm.response.json()).to.have.property('responseCode', 200);\r",
+							"});\r",
+							"pm.test(\"Verify that all Brands contains id and brand\", function (){\r",
+							"    var responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson).to.be.an('object');\r",
+							"    pm.expect(responseJson.brands).to.be.an('array');\r",
+							"\r",
+							"    responseJson.brands.forEach(function(brand){\r",
+							"        pm.expect(brand).to.have.property('id');\r",
+							"        pm.expect(brand).to.have.property('brand');\r",
+							"    });\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BrandsURL}}",
+					"host": [
+						"{{BrandsURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutAllBrands",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\",function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function (){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000 )\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 405 and 'message' with value 'This request method is not supported'\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('object');\r",
+							"    pm.expect(jsonData).to.have.property('responseCode', 405);\r",
+							"    pm.expect(jsonData).to.have.property('message', \"This request method is not supported.\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{BrandsURL}}",
+					"host": [
+						"{{BrandsURL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BrandsURL",
+			"value": "https://automationexercise.com/api/brandsList",
+			"type": "string"
+		}
+	]
+}

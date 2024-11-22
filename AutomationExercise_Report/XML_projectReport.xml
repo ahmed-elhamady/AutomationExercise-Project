@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="484.178" tests="20" skipped="0" failures="0" errors="0">
+<testcase classname="Check the Home functionality." name="Test the Home functionality when user clicks on 'Home' button." time="15.971">
+<system-out><![CDATA[
+Given user navigate to the Home page........................................passed
+Then Home button should be enabled..........................................passed
+And image, H1 'Automation Exercise' , H2 'Full-Fledged practice website for Automation Engineers' and paragraph 'All QA engineers can use this website' should be visible.passed
+And TestCases and APIsList buttons should be displayed......................passed
+And Features items, Category and Brands should be displayed.................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the Home functionality." name="Test the Scroll Up functionality using 'Arrow' button." time="16.535">
+<system-out><![CDATA[
+Given user navigate to the Home page........................................passed
+Then Home button should be enabled..........................................passed
+And image, H1 'Automation Exercise' , H2 'Full-Fledged practice website for Automation Engineers' and paragraph 'All QA engineers can use this website' should be visible.passed
+And TestCases and APIsList buttons should be displayed......................passed
+When the user scroll down to the footer.....................................passed
+Then 'Arrow' button should be displayed.....................................passed
+When user click on 'Arrow' button...........................................passed
+Then user should be navigated to the top of the page and H1 'Automation Exercise' , H2 'Full-Fledged practice website for Automation Engineers' should be visible.passed
+And TestCases and APIsList buttons should be displayed......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the Home functionality." name="Test the Scroll Up functionality without using 'Arrow' button." time="13.154">
+<system-out><![CDATA[
+Given user navigate to the Home page........................................passed
+Then Home button should be enabled..........................................passed
+And image, H1 'Automation Exercise' , H2 'Full-Fledged practice website for Automation Engineers' and paragraph 'All QA engineers can use this website' should be visible.passed
+And TestCases and APIsList buttons should be displayed......................passed
+When the user scroll down to the footer.....................................passed
+Then 'Arrow' button should be displayed.....................................passed
+When user scroll up to the top..............................................passed
+Then user should be navigated to the top of the page and H1 'Automation Exercise' , H2 'Full-Fledged practice website for Automation Engineers' should be visible.passed
+And TestCases and APIsList buttons should be displayed......................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the User SignUp functionality." name="Test the 'User SignUp' functionality when user enter valid data to signUp and enter valid data to Create New Account." time="59.729">
+<system-out><![CDATA[
+Given the user launches the browser and navigates to the home page..........passed
+When the user clicks on Signup OR Login button..............................passed
+Then 'New User Signup!' and Signup button should be visible.................passed
+When the user enters name as "Hassan" and email address as "Hassan2003@gmail.com".passed
+And clicks 'Signup' button..................................................passed
+Then 'ENTER ACCOUNT INFORMATION' should be visible..........................passed
+When the user fills in the details: select Title, Name , Email, Password as "Hassan2003", Date of birth.passed
+And selects the checkbox 'Sign up for our newsletter!'......................passed
+And selects the checkbox 'Receive special offers from our partners!'........passed
+And fills in the details: First name as "Hassan", Last name as "Ahmed", Company as "Amit Learning", Address as "123 Abdelaziz Street", Address_2 as "Apt 4B", select Country, State as "Single", City as "Alex", Zipcode as "M5H 2N2", Mobile Number as "01122334455".passed
+And clicks 'Create Account' button..........................................passed
+Then 'ACCOUNT CREATED!' and continue button should be visible...............passed
+When the user clicks 'Continue' button......................................passed
+Then 'Logged in as username' , delete account button and logout button should be visible.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the User SignUp functionality." name="Test the 'User SignUp' functionality when using an already used Email Address." time="24.64">
+<system-out><![CDATA[
+Given the user launches the browser and navigates to the home page..........passed
+When the user clicks on Signup OR Login button..............................passed
+Then 'New User Signup!' and Signup button should be visible.................passed
+When the user enters name as "Mazen" and email address as "Mazen2000@gmail.com".passed
+And clicks 'Signup' button..................................................passed
+Then an error message 'Email Address already exist!' should be appeared and signUp button should be displayed.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the User SignUp functionality." name="Test the 'Delete Account' functionality when user create an Account and delete it." time="40.903">
+<system-out><![CDATA[
+Given the user launches the browser and navigates to the home page..........passed
+When the user clicks on Signup OR Login button..............................passed
+Then 'New User Signup!' and Signup button should be visible.................passed
+When the user enters name as "John" and email address as "John7799@gmail.com".passed
+And clicks 'Signup' button..................................................passed
+Then 'ENTER ACCOUNT INFORMATION' should be visible..........................passed
+When the user fills in the details: select Title, Name , Email, Password as "John&332020", Date of birth.passed
+And selects the checkbox 'Sign up for our newsletter!'......................passed
+And selects the checkbox 'Receive special offers from our partners!'........passed
+And fills in the details: First name as "John", Last name as "Doe", Company as "Amit Learning", Address as "123 Maple Street", Address_2 as "Apt 4B", select Country, State as "Ontario", City as "Toronto", Zipcode as "M5H 2N2", Mobile Number as "01122334466".passed
+And clicks 'Create Account' button..........................................passed
+Then 'ACCOUNT CREATED!' and continue button should be visible...............passed
+When the user clicks 'Continue' button......................................passed
+Then 'Logged in as username' , delete account button and logout button should be visible.passed
+When the user clicks 'Delete Account' button................................passed
+Then 'ACCOUNT DELETED!' and delete message and continue button should be visible.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the login functionality." name="Test the login functionality when user enter correct Email and Password." time="30.681">
+<system-out><![CDATA[
+Given user launches the browser and navigates to the home page..............passed
+When the user clicks on Signup_Login button.................................passed
+Then 'Login to your account' and login button should be displayed...........passed
+When the user enters email address as "Hassan2003@gmail.com" and password as "Hassan2003".passed
+And clicks 'login' button...................................................passed
+Then 'Logged in as username' should be visible..............................passed
+And delete account button and logout button should be visible...............passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the login functionality." name="Test the login functionality when user enter correct Email and Password to logged in and Delete his Account." time="26.364">
+<system-out><![CDATA[
+Given user launches the browser and navigates to the home page..............passed
+When the user clicks on Signup_Login button.................................passed
+Then 'Login to your account' and login button should be displayed...........passed
+When the user enters email address as "Hassan2003@gmail.com" and password as "Hassan2003".passed
+And clicks 'login' button...................................................passed
+Then 'Logged in as username' should be visible..............................passed
+And delete account button and logout button should be visible...............passed
+When user clicks on 'Delete Account' button.................................passed
+Then 'ACCOUNT DELETED!' should be visible...................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the login functionality." name="Test the login functionality when user enter incorrect Email OR Password." time="18.371">
+<system-out><![CDATA[
+Given user launches the browser and navigates to the home page..............passed
+When the user clicks on Signup_Login button.................................passed
+Then 'Login to your account' and login button should be displayed...........passed
+When the user enters email address as "Alaa222333@gmail.com" and password as "Aa107632".passed
+And clicks 'login' button...................................................passed
+Then an error message 'Your email or password is incorrect!' should be displayed.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the login functionality." name="Test the logout functionality when user enter correct Email and Password to logged in and then logged out." time="25.637">
+<system-out><![CDATA[
+Given user launches the browser and navigates to the home page..............passed
+When the user clicks on Signup_Login button.................................passed
+Then 'Login to your account' and login button should be displayed...........passed
+When the user enters email address as "Mazen2000@gmail.com" and password as "Mazen&2000".passed
+And clicks 'login' button...................................................passed
+Then 'Logged in as username' should be visible..............................passed
+And delete account button and logout button should be visible...............passed
+When the user clicks 'logout' button........................................passed
+Then user should be redirected to the login page............................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the products functionality." name="Test the products functionality when user click on Products button to navigate the products page." time="17.871">
+<system-out><![CDATA[
+Given the user go to the browser and navigates to the home page.............passed
+When user clicks 'products' button..........................................passed
+Then 'All Products' should be visible.......................................passed
+And 'Search' field and button should be displayed...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the products functionality." name="Test the Search functionality when user Search for a product." time="21.968">
+<system-out><![CDATA[
+Given the user go to the browser and navigates to the home page.............passed
+When user clicks 'products' button..........................................passed
+Then 'All Products' should be visible.......................................passed
+And 'Search' field and button should be displayed...........................passed
+When the user enters the product name as "MEN" in the search input..........passed
+And clicks 'Search' button..................................................passed
+Then 'SEARCHED PRODUCTS' should be displayed................................passed
+And all the products related to the search should be displayed..............passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the products functionality." name="Test the Search functionality when user Navigate through categories and sub-categories." time="22.395">
+<system-out><![CDATA[
+Given the user go to the browser and navigates to the home page.............passed
+When user clicks 'products' button..........................................passed
+Then 'All Products' should be visible.......................................passed
+And 'Search' field and button and 'category' link should be displayed.......passed
+When the user click on'Women' category......................................passed
+And click on any category link under 'Women' category, for example: Dress...passed
+Then category page and confirm text 'WOMEN - TOPS PRODUCTS' should be displayed.passed
+And all the products related to the search should be displayed..............passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the Cart functionality." name="Test the cart functionality when user add item/s to the cart from the products page." time="30.389">
+<system-out><![CDATA[
+Given user navigates to the home page.......................................passed
+When user clicks on 'products' button.......................................passed
+And hover over first product and clicks 'add to cart'.......................passed
+Then success message 'Added!' , view cart link and 'Continue Shopping' button should be displayed.passed
+When the user click on 'Continue Shopping' button...........................passed
+And hover over second product and clicks 'add to cart'......................passed
+Then success message 'Added!' , view cart link and 'Continue Shopping' button should be displayed.passed
+When user clicks 'view cart' link...........................................passed
+Then both products should be added to cart, home and Checkout button should be displayed.passed
+And product details like Item, Description, Price, Quantity and Total should be displayed correctly.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the Cart functionality." name="Test the cart functionality when user remove item/s from the cart page." time="26.527">
+<system-out><![CDATA[
+Given user navigates to the home page.......................................passed
+When user clicks on 'products' button.......................................passed
+And hover over first product and clicks 'add to cart'.......................passed
+Then success message 'Added!' , view cart link and 'Continue Shopping' button should be displayed.passed
+When the user click on 'Continue Shopping' button...........................passed
+And hover over second product and clicks 'add to cart'......................passed
+Then success message 'Added!' , view cart link and 'Continue Shopping' button should be displayed.passed
+When user clicks 'view cart' link...........................................passed
+Then both products should be added to cart, home and Checkout button should be displayed.passed
+And product details like Item, Description, Price, Quantity and Total should be displayed correctly.passed
+When user clicks 'x' icon to remove the product.............................passed
+Then product should be removed from the cart page...........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the Cart functionality." name="Test the Product Quantity functionality when user Increase quantity of the product." time="25.165">
+<system-out><![CDATA[
+Given user navigates to the home page.......................................passed
+When user clicks on 'products' button.......................................passed
+And hover over first product and clicks 'view product'......................passed
+Then Quantity field and 'Add to cart' button should displayed...............passed
+And Availability, Condition and Brand should be displayed...................passed
+When user increase the quantity to "4"......................................passed
+And user clicks on 'Add to cart' button.....................................passed
+Then success message 'Added!' , view cart link and 'Continue Shopping' button should be displayed.passed
+When user clicks 'view cart' link...........................................passed
+Then product should be displayed in cart page with exact quantity as "4"....passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the ContactUs functionality." name="Test the contactUs functionality when user clicks on contactUs button and submits the contact us form successfully." time="22.426">
+<system-out><![CDATA[
+Given the user open the browser and navigates to the home page..............passed
+When user clicks on 'contactUs' button......................................passed
+Then 'GET IN TOUCH' and 'Contact Us' should be appeared.....................passed
+When the user enters name as "Hossam", email as "Hossam@gmail", subject as "programming languages" and message as "Hello, I am interested in learning more about programming languages like HTML, CSS, JS, Python and Java. Could you please provide more details? Thank you!".passed
+And the user uploads a file.................................................passed
+And the user clicks the 'Submit' button.....................................passed
+And the user clicks the OK button...........................................passed
+Then success message 'Success! Your details have been submitted successfully.' and home button should be appeared.passed
+When the user clicks on 'Home' button.......................................passed
+Then user should be landed to home page successfully........................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the test case functionality." name="Test the test cases functionality when user click on Test Cases button." time="14.16">
+<system-out><![CDATA[
+Given the user go to the Home page..........................................passed
+When user click on 'TestCases' button.......................................passed
+Then user navigates to the Test Cases page..................................passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the subscription functionality." name="Test the subscription functionality when user open the 'Home' page and subscription to the new updates." time="12.864">
+<system-out><![CDATA[
+Given user open the home page...............................................passed
+When user enter the email address as "Ali@gmail.com"........................passed
+And clicks on arrow Btn.....................................................passed
+Then the success message 'You have been successfully subscribed!' should be appeared.passed
+]]></system-out>
+</testcase>
+<testcase classname="Check the subscription functionality." name="Test the subscription functionality when user open the 'Cart' page and subscription to the new updates." time="15.696">
+<system-out><![CDATA[
+Given user open the home page...............................................passed
+When the user click on 'Cart' button........................................passed
+And user enter the email address as "Ali@gmail.com".........................passed
+And clicks on arrow Btn.....................................................passed
+Then the success message 'You have been successfully subscribed!' should be appeared.passed
+]]></system-out>
+</testcase>
+</testsuite>

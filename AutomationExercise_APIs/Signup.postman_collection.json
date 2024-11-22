@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "4c950e39-2a90-403b-bd76-b0bf0e63f40b",
+		"name": "Signup",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37609950"
+	},
+	"item": [
+		{
+			"name": "CreateUserAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 201 and 'message' with value: User exists!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 201);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"User created!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Kareem",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "Kareem2022@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kareem&2022",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "2007",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Kareem",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Mohamed",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "Amit Learning",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "123 oraby street",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "456 abdou street",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Egypt",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "0200",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "single",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Giza",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "01000231032",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/createAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUserAccountWithExistingEmail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 400 and 'message' with value: Email already exists!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 400);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"Email already exists!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Kareem",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kareem&2020",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "7",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "2007",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Kareem",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Mohamed",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "Amit Learning",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "123 oraby street",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "456 abdou street",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Egypt",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "0200",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "single",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Giza",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "01000231032",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/createAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"createAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200\", function(){\r",
+							"    pm.expect(pm.response.json()).to.have.property('responseCode', 200);\r",
+							"})\r",
+							"pm.test(\"Verify that response body contains User Details\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"\r",
+							"    pm.expect(responseBody.user).to.have.property('id');\r",
+							"    pm.expect(responseBody.user).to.have.property('name', \"Kareem\");\r",
+							"    pm.expect(responseBody.user).to.have.property('email', \"Kareem2020@gmail.com\");\r",
+							"    pm.expect(responseBody.user).to.have.property('title', \"Mr\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_day', \"7\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_month', \"7\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_year', \"2007\");\r",
+							"    pm.expect(responseBody.user).to.have.property('first_name', \"Kareem\");\r",
+							"    pm.expect(responseBody.user).to.have.property('last_name', \"Mohamed\");\r",
+							"    pm.expect(responseBody.user).to.have.property('company', \"Amit Learning\");\r",
+							"    pm.expect(responseBody.user).to.have.property('address1', \"123 oraby street\");\r",
+							"    pm.expect(responseBody.user).to.have.property('address2', \"456 abdou street\");\r",
+							"    pm.expect(responseBody.user).to.have.property('country', \"Egypt\");\r",
+							"    pm.expect(responseBody.user).to.have.property('zipcode', \"0200\");\r",
+							"    pm.expect(responseBody.user).to.have.property('state', \"single\");\r",
+							"    pm.expect(responseBody.user).to.have.property('city', \"Giza\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/getUserDetailByEmail?email=Kareem2020@gmail.com",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"getUserDetailByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUserAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200 and 'message' with value: User updated!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 200);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"User updated!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Kimoo",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kareem&2020",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Mr",
+							"type": "text"
+						},
+						{
+							"key": "birth_date",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "birth_month",
+							"value": "8",
+							"type": "text"
+						},
+						{
+							"key": "birth_year",
+							"value": "2002",
+							"type": "text"
+						},
+						{
+							"key": "firstname",
+							"value": "Kareem",
+							"type": "text"
+						},
+						{
+							"key": "lastname",
+							"value": "Mohamed",
+							"type": "text"
+						},
+						{
+							"key": "company",
+							"value": "Nezam Academy",
+							"type": "text"
+						},
+						{
+							"key": "address1",
+							"value": "123 Oraby Street",
+							"type": "text"
+						},
+						{
+							"key": "address2",
+							"value": "456 AbdElaziz Street",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "UAE",
+							"type": "text"
+						},
+						{
+							"key": "zipcode",
+							"value": "00966",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "Married",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Assiut",
+							"type": "text"
+						},
+						{
+							"key": "mobile_number",
+							"value": "01000231032",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/updateAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"updateAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUpdatedUserAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200\", function(){\r",
+							"    pm.expect(pm.response.json()).to.have.property('responseCode', 200);\r",
+							"})\r",
+							"pm.test(\"Verify that response body contains User Details\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"\r",
+							"    pm.expect(responseBody.user).to.have.property('id');\r",
+							"    pm.expect(responseBody.user).to.have.property('name', \"Kimoo\");\r",
+							"    pm.expect(responseBody.user).to.have.property('email', \"Kareem2020@gmail.com\");\r",
+							"    pm.expect(responseBody.user).to.have.property('title', \"Mr\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_day', \"8\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_month', \"8\");\r",
+							"    pm.expect(responseBody.user).to.have.property('birth_year', \"2002\");\r",
+							"    pm.expect(responseBody.user).to.have.property('first_name', \"Kareem\");\r",
+							"    pm.expect(responseBody.user).to.have.property('last_name', \"Mohamed\");\r",
+							"    pm.expect(responseBody.user).to.have.property('company', \"Nezam Academy\");\r",
+							"    pm.expect(responseBody.user).to.have.property('address1', \"123 Oraby Street\");\r",
+							"    pm.expect(responseBody.user).to.have.property('address2', \"456 AbdElaziz Street\");\r",
+							"    pm.expect(responseBody.user).to.have.property('country', \"UAE\");\r",
+							"    pm.expect(responseBody.user).to.have.property('zipcode', \"00966\");\r",
+							"    pm.expect(responseBody.user).to.have.property('state', \"Married\");\r",
+							"    pm.expect(responseBody.user).to.have.property('city', \"Assiut\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/getUserDetailByEmail?email=Kareem2020@gmail.com",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"getUserDetailByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUserAccound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 200 and 'message' with value: Account deleted!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 200);\r",
+							"    pm.expect(responseBody).to.have.property('message', \" Account deleted!\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Kareem&2020",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/deleteAccount",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"deleteAccount"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDeletedUserAccount",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Verify that status code is 200 ok\", function(){\r",
+							"    pm.expect(pm.response).to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Verify that response time is less than 1s\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Verify that response body contains 'responseCode' with value equal to 404 and 'message' with value: Account not found with this email, try another email!\", function (){\r",
+							"    var responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an('object');\r",
+							"    pm.expect(responseBody).to.have.property('responseCode', 404);\r",
+							"    pm.expect(responseBody).to.have.property('message', \"Account not found with this email, try another email!\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://automationexercise.com/api/getUserDetailByEmail?email=Kareem2020@gmail.com",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"getUserDetailByEmail"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "Kareem2020@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
